@@ -1,0 +1,22 @@
+<project xmlns="http://maven.apache.org/POM/4.0.0"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+	<modelVersion>4.0.0</modelVersion>
+
+	<groupId>org.wildfly.maven.plugins</groupId>
+	<artifactId>test-update-pom-versions</artifactId>
+	<version>@pom.version@</version>
+
+	<name>Update Versions Maven Plugin Test</name>
+	<packaging>jar</packaging>
+
+	<properties>
+		<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+		<update-versions.stream>7.2.CDx</update-versions.stream>
+		<update-versions.update>true</update-versions.update>
+		<update-versions.strictMode>true</update-versions.strictMode>
+		<update-versions.targetPom>pom_javaee_specs.xml</update-versions.targetPom>
+		<update-versions.wildflyPom>pom_wildfly.xml</update-versions.wildflyPom>
+		<update-versions.wildflyCorePom>pom_wildflycore.xml</update-versions.wildflyCorePom>
+	</properties>
+</project>
