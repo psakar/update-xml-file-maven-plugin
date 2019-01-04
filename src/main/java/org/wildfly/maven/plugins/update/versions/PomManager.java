@@ -13,6 +13,8 @@ import com.ximpleware.ParseException;
 import com.ximpleware.VTDGen;
 import com.ximpleware.VTDNav;
 import com.ximpleware.XMLModifier;
+import com.ximpleware.XPathEvalException;
+import com.ximpleware.XPathParseException;
 
 public class PomManager {
 	private File pomFile;
@@ -28,27 +30,27 @@ public class PomManager {
 		vtdNav = parse();
 	}
 
-	public String findPropertyVersion(String propertyName) {
-		int index = getTokenIndex(propertyName, vtdNav.cloneNav());
+	public String findPropertyVersion(String propertyXPath) {
+		int index = getTokenIndex(propertyXPath, vtdNav.cloneNav());
 		if (index > 0) {
 			try {
 				return vtdNav.toNormalizedString(index);
 			} catch (NavException e) {
-				throw new IllegalStateException("Failed to find property " + propertyName + " - " + e.getMessage());
+				throw new IllegalStateException("Failed to find property " + propertyXPath + " - " + e.getMessage());
 			}
 		}
 		return null;
 	}
 
-	public boolean updatePropertyVersion(String propertyName, String newVersion) {
-		int index = getTokenIndex(propertyName, vtdNav.cloneNav());
+	public boolean updatePropertyVersion(String propertyXPath, String newVersion) {
+		int index = getTokenIndex(propertyXPath, vtdNav.cloneNav());
 		if (index > 0) {
 			try {
 				xmlModifier.bind(vtdNav);
 				xmlModifier.updateToken(index, newVersion);
 				return true;
 			} catch (ModifyException | UnsupportedEncodingException e) {
-				throw new IllegalStateException("Failed to update property " + propertyName + " - " + e.getMessage());
+				throw new IllegalStateException("Failed to update property " + propertyXPath + " - " + e.getMessage());
 			}
 		}
 		return false;
@@ -75,18 +77,18 @@ public class PomManager {
 		}
 	}
 
-	private static int getTokenIndex(String propertyName, VTDNav vtdNav) {
+	private static int getTokenIndex(String propertyXPath, VTDNav vtdNav) {
 		AutoPilot ap = new AutoPilot(vtdNav);
-		ap.selectElement(propertyName);
 		try {
-			while (ap.iterate()) {
+			ap.selectXPath(propertyXPath);
+			while (ap.evalXPath() != -1) {
 				int index = vtdNav.getText();
 				if (index != -1) {
 					return index;
 				}
 			}
-		} catch (NavException e) {
-			throw new IllegalStateException("Failed to get token index for " + propertyName + " - " + e.getMessage());
+		} catch (NavException | XPathEvalException | XPathParseException e) {
+			return -1;
 		}
 		return -1;
 	}

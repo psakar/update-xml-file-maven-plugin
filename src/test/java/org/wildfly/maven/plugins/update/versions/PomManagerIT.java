@@ -5,6 +5,7 @@ import static org.junit.Assert.assertFalse;
 import static org.junit.Assert.assertNull;
 import static org.junit.Assert.assertTrue;
 import static org.wildfly.maven.plugins.update.versions.TestUtils.JAVAX_ENTERPRISE_PROPERTY;
+import static org.wildfly.maven.plugins.update.versions.TestUtils.JAVAX_ENTERPRISE_XPATH;
 import static org.wildfly.maven.plugins.update.versions.TestUtils.POM_TEST_PATH;
 import static org.wildfly.maven.plugins.update.versions.TestUtils.XML_EXTENSION;
 import static org.wildfly.maven.plugins.update.versions.TestUtils.checkFileContainsPropertyAndVersion;
@@ -22,7 +23,7 @@ public class PomManagerIT {
 	private File tmpPomFile;
 
 	@Before
-	public void before() throws Exception {
+	public void before() {
 		File pomFile = new File(POM_TEST_PATH);
 		tmpPomFile = copyFile(pomFile, XML_EXTENSION);
 
@@ -39,7 +40,7 @@ public class PomManagerIT {
 	public void testPropertyVersionFound() {
 		String expectedVersion = "2.0.0.SP1-redhat-00001";
 
-		String version = pomManager.findPropertyVersion(JAVAX_ENTERPRISE_PROPERTY);
+		String version = pomManager.findPropertyVersion(JAVAX_ENTERPRISE_XPATH);
 
 		assertEquals(expectedVersion, version);
 	}
@@ -57,7 +58,7 @@ public class PomManagerIT {
 	public void testUpdatePropertyVersion() {
 		String newVersion = createRandomString();
 
-		boolean result = pomManager.updatePropertyVersion(JAVAX_ENTERPRISE_PROPERTY, newVersion);
+		boolean result = pomManager.updatePropertyVersion(JAVAX_ENTERPRISE_XPATH, newVersion);
 
 		assertTrue(result);
 	}
@@ -77,7 +78,7 @@ public class PomManagerIT {
 		String newVersion = "2.0.0.SP2-redhat-00001";
 		pomManager.parsePomFile(tmpPomFile);
 
-		pomManager.updatePropertyVersion(JAVAX_ENTERPRISE_PROPERTY, newVersion);
+		pomManager.updatePropertyVersion(JAVAX_ENTERPRISE_XPATH, newVersion);
 		pomManager.writeToPomFile();
 
 		assertTrue(checkFileContainsPropertyAndVersion(JAVAX_ENTERPRISE_PROPERTY, newVersion, tmpPomFile));

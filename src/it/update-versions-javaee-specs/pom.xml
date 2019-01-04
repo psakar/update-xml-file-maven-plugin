@@ -7,16 +7,16 @@
 	<artifactId>test-update-pom-versions</artifactId>
 	<version>@pom.version@</version>
 
-	<name>Update Versions Maven Plugin Test</name>
+	<name>Update JavaEE Specs Versions Test</name>
 	<packaging>jar</packaging>
 
 	<properties>
 		<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
-		<update-versions.stream>7.2.CDx</update-versions.stream>
-		<update-versions.update>true</update-versions.update>
-		<update-versions.strictMode>true</update-versions.strictMode>
-		<update-versions.targetPom>pom_javaee_specs.xml</update-versions.targetPom>
-		<update-versions.wildflyPom>pom_wildfly.xml</update-versions.wildflyPom>
-		<update-versions.wildflyCorePom>pom_wildflycore.xml</update-versions.wildflyCorePom>
+		<configFile>resources/config_javaee_specs</configFile>
+		<wildflyPom>resources/pom_wildfly.xml</wildflyPom>
+		<wildflyCorePom>resources/pom_wildflycore.xml</wildflyCorePom>
+		<updatePom>resources/pom_javaee_specs.xml</updatePom>
+		<update>true</update>
+		<strictMode>true</strictMode>
 	</properties>
 </project>

@@ -1,10 +1,10 @@
 package org.wildfly.maven.plugins.update.versions;
 
-import java.io.File;
-import java.text.MessageFormat;
+import static java.text.MessageFormat.format;
 
-import org.wildfly.maven.plugins.update.versions.AbstractVersionUpdateMojo.MyLogger;
-import org.wildfly.maven.plugins.update.versions.Property.PropertyReference;
+import java.io.File;
+
+import org.wildfly.maven.plugins.update.versions.VersionUpdateMojo.MyLogger;
 
 public class Updater {
 	private final File targetPom;
@@ -23,33 +23,34 @@ public class Updater {
 
 	public void updateProperties(Iterable<Property> properties, boolean update, boolean strictMode) {
 		for (Property property : properties) {
-			String newVersion = getPropertyVersionFromPom(property.reference);
+			String newVersion = property.getReference().getVersion();
 			if (newVersion == null) {
-				handleVersionNotFound(property.reference, strictMode);
+				IPropertyReference propertyReference = property.getReference();
+				handleVersionNotFound(propertyReference.getPropertyXPath(), propertyReference.getPomFile(), strictMode);
 			} else {
-				updateProperty(property.name, newVersion, update, strictMode);
+				updateProperty(property.targetPropertyXPath, newVersion, update, strictMode);
 			}
 		}
 	}
 
-	public void updateProperty(String propertyName, String newVersion, boolean update, boolean strictMode) {
-		String currentVersion = pomManager.findPropertyVersion(propertyName);
+	private void updateProperty(String propertyXPath, String newVersion, boolean update, boolean strictMode) {
+		String currentVersion = pomManager.findPropertyVersion(propertyXPath);
 		if (currentVersion == null) {
-			handleVersionNotFound(new PropertyReference(propertyName, targetPom), strictMode);
+			handleVersionNotFound(propertyXPath, targetPom, strictMode);
 			return;
 		}
 
 		if (!currentVersion.equals(newVersion)) {
-			log.info(createChangeVersionMessage(propertyName, newVersion, targetPom.getAbsolutePath()));
+			log.info(createChangeVersionMessage(propertyXPath, newVersion, targetPom.getAbsolutePath()));
 			if (update) {
-				pomManager.updatePropertyVersion(propertyName, newVersion);
+				pomManager.updatePropertyVersion(propertyXPath, newVersion);
 				pomManager.writeToPomFile();
 			}
 		}
 	}
 
-	private void handleVersionNotFound(PropertyReference reference, boolean strictMode) {
-		String message = createPropertyNotFoundMessage(reference);
+	private void handleVersionNotFound(String propertyName, File file, boolean strictMode) {
+		String message = createPropertyNotFoundMessage(propertyName, file);
 		if (strictMode) {
 			throw new IllegalStateException(message);
 		} else {
@@ -57,19 +58,11 @@ public class Updater {
 		}
 	}
 
-	private static String getPropertyVersionFromPom(PropertyReference reference) {
-		PomManager pm = new PomManager();
-		pm.parsePomFile(reference.pomFile);
-		return pm.findPropertyVersion(reference.propertyName);
-	}
-
-	private static String createPropertyNotFoundMessage(PropertyReference reference) {
-		return MessageFormat.format("Could not find property {0} in pom file {1}", reference.propertyName,
-				reference.pomFile);
+	private static String createPropertyNotFoundMessage(String propertyName, File file) {
+		return format("Could not find {0} in file {1}", propertyName, file);
 	}
 
 	private static String createChangeVersionMessage(String propertyName, String expectedVersion, String targetPom) {
-		return MessageFormat.format("Change version of property <{0}> to {1} in file {2}", propertyName,
-				expectedVersion, targetPom);
+		return format("Change version of {0} to {1} in file {2}", propertyName, expectedVersion, targetPom);
 	}
 }

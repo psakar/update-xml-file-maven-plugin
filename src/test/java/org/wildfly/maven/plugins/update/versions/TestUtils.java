@@ -14,15 +14,20 @@ public class TestUtils {
 	public static final String TEST_RESOURCES_FOLDER = "src/test/resources";
 	public static final String POM_TEST_PATH = TEST_RESOURCES_FOLDER + "/pom_test.xml";
 	public static final String POM_REFERENCE_TEST_PATH = TEST_RESOURCES_FOLDER + "/pom_reference_test.xml";
-	public static final String XML_EXTENSION = ".xml";
+	public static final String PROPERTIES_EXAMPLE_PATH = TEST_RESOURCES_FOLDER + "/properties_example";
+	public static final String MAVEN_PARAMETER_WILDFLYCORE_POM = "wildflyCorePom";
+
 	public static final String JAVAX_ENTERPRISE_PROPERTY = "version.javax.enterprise";
+	public static final String JAVAX_ENTERPRISE_XPATH = "//properties/" + JAVAX_ENTERPRISE_PROPERTY;
+	public static final String JAVAX_ENTERPRISE_VALUE = "2.0.0.SP1-redhat-00001";
+
+	public static final String XML_EXTENSION = ".xml";
 
 	private TestUtils() {
 	}
 
 	public static String createRandomString() {
 		return random(20, true, true);
-
 	}
 
 	public static File copyFile(File file, String extension) {

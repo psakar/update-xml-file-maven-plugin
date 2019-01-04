@@ -1,0 +1,2 @@
+//properties/product.version;VARIABLE;eapVersion
+//properties/version.javax.enterprise;FILE;wildflyCorePom://properties/version.javax.enterprise
