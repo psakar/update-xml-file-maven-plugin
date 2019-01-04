@@ -1,0 +1,10 @@
+//properties/version.server.bom;VARIABLE;serverBomVersion
+//properties/version.commons-io;FILE;wildflyCorePom://properties/version.commons-io
+//properties/version.org.apache.httpcomponents.httpclient;FILE;wildflyCorePom://properties/version.org.apache.httpcomponents.httpclient
+//properties/version.org.jboss.msc.jboss-msc;FILE;wildflyCorePom://properties/version.org.jboss.msc.jboss-msc
+//properties/version.org.slf4j;FILE;wildflyCorePom://properties/version.org.slf4j
+//properties/version.com.fasterxml.jackson;FILE;wildflyPom://properties/version.com.fasterxml.jackson
+//properties/version.com.h2database;FILE;wildflyPom://properties/version.com.h2database
+//properties/version.com.sun.istack;FILE;wildflyPom://properties/version.com.sun.istack
+//properties/version.org.bouncycastle;FILE;wildflyPom://properties/version.org.bouncycastle
+//properties/version.org.javassist;FILE;wildflyPom://properties/version.org.javassist
