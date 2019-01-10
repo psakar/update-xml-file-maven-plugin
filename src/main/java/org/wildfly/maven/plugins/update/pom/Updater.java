@@ -1,10 +1,10 @@
-package org.wildfly.maven.plugins.update.versions;
+package org.wildfly.maven.plugins.update.pom;
 
 import static java.text.MessageFormat.format;
 
 import java.io.File;
 
-import org.wildfly.maven.plugins.update.versions.VersionUpdateMojo.MyLogger;
+import org.wildfly.maven.plugins.update.pom.VersionUpdateMojo.MyLogger;
 
 public class Updater {
 	private final File targetPom;

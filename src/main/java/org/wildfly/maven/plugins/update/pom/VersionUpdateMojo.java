@@ -1,9 +1,9 @@
-package org.wildfly.maven.plugins.update.versions;
+package org.wildfly.maven.plugins.update.pom;
 
 import static org.apache.maven.plugins.annotations.LifecyclePhase.VALIDATE;
-import static org.wildfly.maven.plugins.update.versions.Constants.PLUGIN_NAME;
-import static org.wildfly.maven.plugins.update.versions.FileUtils.convertToFile;
-import static org.wildfly.maven.plugins.update.versions.FileUtils.getFilesInPath;
+import static org.wildfly.maven.plugins.update.pom.Constants.PLUGIN_NAME;
+import static org.wildfly.maven.plugins.update.pom.FileUtils.convertToFile;
+import static org.wildfly.maven.plugins.update.pom.FileUtils.getFilesInPath;
 
 import java.io.File;
 import java.util.List;

@@ -1,4 +1,4 @@
-package org.wildfly.maven.plugins.update.versions;
+package org.wildfly.maven.plugins.update.pom;
 
 import java.io.File;
 

@@ -4,7 +4,7 @@
 	<modelVersion>4.0.0</modelVersion>
 
 	<groupId>org.wildfly.maven.plugins</groupId>
-	<artifactId>update-pom-versions</artifactId>
+	<artifactId>update-pom-maven-plugin</artifactId>
 	<version>0.0.1.Final</version>
 	<packaging>maven-plugin</packaging>
 

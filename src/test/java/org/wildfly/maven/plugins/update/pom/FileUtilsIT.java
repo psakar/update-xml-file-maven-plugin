@@ -1,15 +1,15 @@
-package org.wildfly.maven.plugins.update.versions;
+package org.wildfly.maven.plugins.update.pom;
 
 import static org.apache.commons.io.FileUtils.deleteDirectory;
 import static org.junit.Assert.assertEquals;
 import static org.junit.Assert.assertTrue;
-import static org.wildfly.maven.plugins.update.versions.FileUtils.WILDCARD;
-import static org.wildfly.maven.plugins.update.versions.FileUtils.convertToFile;
-import static org.wildfly.maven.plugins.update.versions.FileUtils.getFilesInPath;
-import static org.wildfly.maven.plugins.update.versions.FileUtils.readTextFileToList;
-import static org.wildfly.maven.plugins.update.versions.TestUtils.POM_TEST_PATH;
-import static org.wildfly.maven.plugins.update.versions.TestUtils.PROPERTIES_EXAMPLE_PATH;
-import static org.wildfly.maven.plugins.update.versions.TestUtils.createRandomString;
+import static org.wildfly.maven.plugins.update.pom.FileUtils.WILDCARD;
+import static org.wildfly.maven.plugins.update.pom.FileUtils.convertToFile;
+import static org.wildfly.maven.plugins.update.pom.FileUtils.getFilesInPath;
+import static org.wildfly.maven.plugins.update.pom.FileUtils.readTextFileToList;
+import static org.wildfly.maven.plugins.update.pom.TestUtils.POM_TEST_PATH;
+import static org.wildfly.maven.plugins.update.pom.TestUtils.PROPERTIES_EXAMPLE_PATH;
+import static org.wildfly.maven.plugins.update.pom.TestUtils.createRandomString;
 
 import java.io.File;
 import java.util.List;

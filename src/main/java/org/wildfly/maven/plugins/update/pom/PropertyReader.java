@@ -1,10 +1,10 @@
-package org.wildfly.maven.plugins.update.versions;
+package org.wildfly.maven.plugins.update.pom;
 
 import static java.text.MessageFormat.format;
-import static org.wildfly.maven.plugins.update.versions.FileUtils.convertToFile;
-import static org.wildfly.maven.plugins.update.versions.FileUtils.readTextFileToList;
-import static org.wildfly.maven.plugins.update.versions.Property.SOURCE_TYPE_FILE;
-import static org.wildfly.maven.plugins.update.versions.Property.SOURCE_TYPE_VARIABLE;
+import static org.wildfly.maven.plugins.update.pom.FileUtils.convertToFile;
+import static org.wildfly.maven.plugins.update.pom.FileUtils.readTextFileToList;
+import static org.wildfly.maven.plugins.update.pom.Property.SOURCE_TYPE_FILE;
+import static org.wildfly.maven.plugins.update.pom.Property.SOURCE_TYPE_VARIABLE;
 
 import java.io.File;
 import java.util.ArrayList;

@@ -1,4 +1,4 @@
-package org.wildfly.maven.plugins.update.versions;
+package org.wildfly.maven.plugins.update.pom;
 
 public class Property {
 	public static final String SOURCE_TYPE_VARIABLE = "VARIABLE";
