@@ -4,7 +4,7 @@
 	<modelVersion>4.0.0</modelVersion>
 
 	<groupId>org.wildfly.maven.plugins</groupId>
-	<artifactId>test-update-pom-versions</artifactId>
+	<artifactId>test-update-xml-file</artifactId>
 	<version>@pom.version@</version>
 
 	<name>Update Quickstarts Versions Test</name>

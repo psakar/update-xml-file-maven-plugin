@@ -1,4 +1,4 @@
-package org.wildfly.maven.plugins.update.pom;
+package org.wildfly.maven.plugins.updateXmlFile;
 
 import static com.google.common.io.Files.copy;
 import static java.io.File.createTempFile;

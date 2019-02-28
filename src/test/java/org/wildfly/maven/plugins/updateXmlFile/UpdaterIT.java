@@ -1,16 +1,16 @@
-package org.wildfly.maven.plugins.update.pom;
+package org.wildfly.maven.plugins.updateXmlFile;
 
 import static java.util.Arrays.asList;
 import static org.junit.Assert.assertTrue;
-import static org.wildfly.maven.plugins.update.pom.Property.SOURCE_TYPE_FILE;
-import static org.wildfly.maven.plugins.update.pom.TestUtils.JAVAX_ENTERPRISE_PROPERTY;
-import static org.wildfly.maven.plugins.update.pom.TestUtils.JAVAX_ENTERPRISE_XPATH;
-import static org.wildfly.maven.plugins.update.pom.TestUtils.POM_REFERENCE_TEST_PATH;
-import static org.wildfly.maven.plugins.update.pom.TestUtils.POM_TEST_PATH;
-import static org.wildfly.maven.plugins.update.pom.TestUtils.XML_EXTENSION;
-import static org.wildfly.maven.plugins.update.pom.TestUtils.checkFileContainsPropertyAndVersion;
-import static org.wildfly.maven.plugins.update.pom.TestUtils.copyFile;
-import static org.wildfly.maven.plugins.update.pom.TestUtils.createRandomString;
+import static org.wildfly.maven.plugins.updateXmlFile.Property.SOURCE_TYPE_FILE;
+import static org.wildfly.maven.plugins.updateXmlFile.TestUtils.JAVAX_ENTERPRISE_PROPERTY;
+import static org.wildfly.maven.plugins.updateXmlFile.TestUtils.JAVAX_ENTERPRISE_XPATH;
+import static org.wildfly.maven.plugins.updateXmlFile.TestUtils.POM_REFERENCE_TEST_PATH;
+import static org.wildfly.maven.plugins.updateXmlFile.TestUtils.POM_TEST_PATH;
+import static org.wildfly.maven.plugins.updateXmlFile.TestUtils.XML_EXTENSION;
+import static org.wildfly.maven.plugins.updateXmlFile.TestUtils.checkFileContainsPropertyAndVersion;
+import static org.wildfly.maven.plugins.updateXmlFile.TestUtils.copyFile;
+import static org.wildfly.maven.plugins.updateXmlFile.TestUtils.createRandomString;
 
 import java.io.File;
 import java.util.List;
@@ -18,9 +18,7 @@ import java.util.List;
 import org.junit.After;
 import org.junit.Before;
 import org.junit.Test;
-import org.wildfly.maven.plugins.update.pom.Property;
-import org.wildfly.maven.plugins.update.pom.Updater;
-import org.wildfly.maven.plugins.update.pom.VersionUpdateMojo.MyLogger;
+import org.wildfly.maven.plugins.updateXmlFile.VersionUpdateMojo.MyLogger;
 
 public class UpdaterIT {
 	private static final String JAVAX_INJECT_PROPERTY = "version.javax.inject";

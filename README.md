@@ -1,5 +1,6 @@
-# Update Pom
-Update Pom is a Maven plugin that updates the properties of a Pom file based on others Pom files. 
+# Update xml file
+Update xml file is a Maven plugin that updates the text values in xml file based on provided values or values in anothers xml files.
+What should be updated from where can be stored in configuration file
 
 
 ## Installation
@@ -21,16 +22,16 @@ mvn clean install -DskipITs
 ## Usage
 The required Maven options are:
 * -DupdatePom  - Pom file that will be updated
-* -DconfigFile - Configuration file (local file or HTTP URL)
+* -DconfigFile - configuration file (local file or HTTP URL)
 
 An example of how to run:
 ```
-mvn org.wildfly.maven.plugins:update-pom-maven-plugin:update-versions \
 	-DupdatePom=/path/to/target/pom.xml \
+mvn org.wildfly.maven.plugins:update-pom-maven-plugin:update \
 	-DconfigFile=configurationFile
 ```
 
-It is possible to update multiple Pom files at the same time using * in the Pom path, like:
+It is possible to update multiple xml files at the same time using * in the Pom path, like:
 ```
 -DupdatePom=/tmp/repo/*/pom.xml
 ```
@@ -39,8 +40,8 @@ It is possible to update multiple Pom files at the same time using * in the Pom 
 The configuration file defines the properties to be updated. The file is in CSV format and has 3 fields:
 * XPath to the property that will be updated
 * Source Type of the reference used for the update (VARIABLE or FILE)
-* Reference Property (Reference Pom name + property XPath) or Variable name.
- 
+* Reference Property (reference xml file name + property XPath) or Variable name.
+
 There are some configurations files as part of this project in "configs" folder.
 
 
@@ -55,7 +56,7 @@ To define "wildflyCorePom" value, add it as a Maven option:
 -DwildflyCorePom=/path/to/file/pom.xml
 ```
 
-The Pom path accepts both a path to a local file or a HTTP URL.
+Value can be path to a local file or HTTP URL.
 
 
 #### Example of VARIABLE source type
@@ -72,7 +73,7 @@ To define "serverBomVersion" value, add it as a Maven option:
 
 ### Extra options
 The following Maven options are optional
-* -Dupdate - Automatically update versions in target Pom. (-Dupdate=false is dry-run mode)
+* -Dupdate - Automatically update versions in target file. (-Dupdate=false is dry-run mode)
 * -DstrictMode - Execution fails if a property defined in the configuration file is not found. (-DstrictMode=true is fail-fast mode)
 
 Default value for -Dupdate is true and -DstricMode is false

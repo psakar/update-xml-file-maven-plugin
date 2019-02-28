@@ -1,4 +1,4 @@
-package org.wildfly.maven.plugins.update.pom;
+package org.wildfly.maven.plugins.updateXmlFile;
 
 import static java.io.File.createTempFile;
 import static java.nio.file.Files.readAllLines;

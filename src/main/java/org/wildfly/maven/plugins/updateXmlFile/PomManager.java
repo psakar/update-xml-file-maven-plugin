@@ -1,4 +1,4 @@
-package org.wildfly.maven.plugins.update.pom;
+package org.wildfly.maven.plugins.updateXmlFile;
 
 import static java.nio.file.Files.readAllBytes;
 
