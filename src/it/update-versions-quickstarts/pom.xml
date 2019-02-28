@@ -15,7 +15,7 @@
 		<configFile>resources/config_quickstarts</configFile>
 		<wildflyPom>resources/pom_wildfly.xml</wildflyPom>
 		<wildflyCorePom>resources/pom_wildflycore.xml</wildflyCorePom>
-		<updatePom>resources/pom_quickstarts.xml</updatePom>
+		<updatedFile>resources/pom_quickstarts.xml</updatedFile>
 		<eapVersion>14.0.1.Final-redhat-00001</eapVersion>
 		<update>true</update>
 		<strictMode>true</strictMode>

@@ -21,19 +21,19 @@ mvn clean install -DskipITs
 
 ## Usage
 The required Maven options are:
-* -DupdatePom  - Pom file that will be updated
+* -DupdatedFile  - xml file that will be updated
 * -DconfigFile - configuration file (local file or HTTP URL)
 
 An example of how to run:
 ```
-	-DupdatePom=/path/to/target/pom.xml \
 mvn org.wildfly.maven.plugins:update-pom-maven-plugin:update \
+	-DupdatedFile=/path/to/target/pom.xml \
 	-DconfigFile=configurationFile
 ```
 
 It is possible to update multiple xml files at the same time using * in the Pom path, like:
 ```
--DupdatePom=/tmp/repo/*/pom.xml
+-DupdatedFile=/tmp/repo/*/pom.xml
 ```
 
 ### Configuration file

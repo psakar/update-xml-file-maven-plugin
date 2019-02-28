@@ -15,7 +15,7 @@
 		<configFile>resources/config_javaee_specs</configFile>
 		<wildflyPom>resources/pom_wildfly.xml</wildflyPom>
 		<wildflyCorePom>resources/pom_wildflycore.xml</wildflyCorePom>
-		<updatePom>resources/pom_javaee_specs.xml</updatePom>
+		<updatedFile>resources/pom_javaee_specs.xml</updatedFile>
 		<update>true</update>
 		<strictMode>true</strictMode>
 	</properties>

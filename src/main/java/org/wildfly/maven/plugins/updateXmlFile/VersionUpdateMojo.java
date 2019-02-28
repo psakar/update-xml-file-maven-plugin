@@ -21,7 +21,7 @@ public class VersionUpdateMojo extends AbstractMojo {
 	@Parameter(property = "configFile", required = true)
 	private String configFilePath;
 
-	@Parameter(property = "updatePom", required = true)
+	@Parameter(property = "updatedFile", required = true)
 	private String targetPomPath;
 
 	@Parameter(property = "update", defaultValue = "true")
