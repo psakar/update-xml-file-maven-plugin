@@ -47,6 +47,9 @@ public final class FileUtils {
 	}
 
 	public static File convertToFile(String path) {
+		if (isBlank(path)) {
+			return null;
+		}
 		if (path.startsWith("http")) {
 			return downloadPomToTempFile(path);
 		}
