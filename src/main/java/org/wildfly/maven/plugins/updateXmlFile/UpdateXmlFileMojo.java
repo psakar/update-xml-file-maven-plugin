@@ -21,19 +21,19 @@ import org.apache.maven.project.MavenProject;
 @Mojo(name = UPDATE_GOAL, defaultPhase = VALIDATE, requiresProject = false)
 public class UpdateXmlFileMojo extends AbstractMojo {
 
-	@Parameter(property = "configFile", required = false)
+	@Parameter(property = "updateXmlFile.configFile", required = false)
 	private String configFilePath;
 
-	@Parameter(property = "updatedFile", required = true)
+	@Parameter(property = "updateXmlFile.updatedFile", required = true)
 	private String updatedFile;
 
-	@Parameter(property = "update", defaultValue = "true")
+	@Parameter(property = "updateXmlFile.update", defaultValue = "true")
 	private boolean update;
 
-	@Parameter(property = "strictMode", defaultValue = "false")
+	@Parameter(property = "updateXmlFile.strictMode", defaultValue = "false")
 	private boolean strictMode;
 
-	@Parameter(property = "config", required = false)
+	@Parameter(property = "updateXmlFile.config", required = false)
 	private String config;
 
 	@Inject
@@ -58,7 +58,7 @@ public class UpdateXmlFileMojo extends AbstractMojo {
 
 	List<String> readConfigLines() throws MojoExecutionException {
 		if (FileUtils.isBlank(configFilePath) && FileUtils.isBlank(config)) {
-			throw new MojoExecutionException("Please specify either configFilePath or config property in plugin configuration or by -Dconfig or -DconfigFile");
+			throw new MojoExecutionException("Please specify either configFilePath or config property in plugin configuration or by -DupdateXmlFile.config or -DupdateXmlFile.configFile");
 		}
 		File configFile = convertToFile(configFilePath);
 		return configFile == null ? asList(config) : readTextFileToList(configFile);

@@ -12,11 +12,11 @@
 
 	<properties>
 		<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
-		<configFile>resources/config_javaee_specs</configFile>
+		<updateXmlFile.configFile>resources/config_javaee_specs</updateXmlFile.configFile>
 		<wildflyPom>resources/pom_wildfly.xml</wildflyPom>
 		<wildflyCorePom>resources/pom_wildflycore.xml</wildflyCorePom>
-		<updatedFile>resources/pom_javaee_specs.xml</updatedFile>
-		<update>true</update>
-		<strictMode>true</strictMode>
+		<updateXmlFile.updatedFile>resources/pom_javaee_specs.xml</updateXmlFile.updatedFile>
+		<updateXmlFile.update>true</updateXmlFile.update>
+		<updateXmlFile.strictMode>true</updateXmlFile.strictMode>
 	</properties>
 </project>

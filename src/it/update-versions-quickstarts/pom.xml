@@ -12,12 +12,12 @@
 
 	<properties>
 		<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
-		<configFile>resources/config_quickstarts</configFile>
+		<updateXmlFile.configFile>resources/config_quickstarts</updateXmlFile.configFile>
 		<wildflyPom>resources/pom_wildfly.xml</wildflyPom>
 		<wildflyCorePom>resources/pom_wildflycore.xml</wildflyCorePom>
-		<updatedFile>resources/pom_quickstarts.xml</updatedFile>
+		<updateXmlFile.updatedFile>resources/pom_quickstarts.xml</updateXmlFile.updatedFile>
 		<eapVersion>14.0.1.Final-redhat-00001</eapVersion>
-		<update>true</update>
-		<strictMode>true</strictMode>
+		<updateXmlFile.update>true</updateXmlFile.update>
+		<updateXmlFile.strictMode>true</updateXmlFile.strictMode>
 	</properties>
 </project>
