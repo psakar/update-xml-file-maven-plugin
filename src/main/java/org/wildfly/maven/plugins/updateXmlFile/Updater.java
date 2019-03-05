@@ -4,7 +4,7 @@ import static java.text.MessageFormat.format;
 
 import java.io.File;
 
-import org.wildfly.maven.plugins.updateXmlFile.VersionUpdateMojo.MyLogger;
+import org.wildfly.maven.plugins.updateXmlFile.UpdateXmlFileMojo.MyLogger;
 
 public class Updater {
 	private final File targetPom;

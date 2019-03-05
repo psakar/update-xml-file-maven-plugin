@@ -18,7 +18,7 @@ import java.util.List;
 import org.junit.After;
 import org.junit.Before;
 import org.junit.Test;
-import org.wildfly.maven.plugins.updateXmlFile.VersionUpdateMojo.MyLogger;
+import org.wildfly.maven.plugins.updateXmlFile.UpdateXmlFileMojo.MyLogger;
 
 public class UpdaterIT {
 	private static final String JAVAX_INJECT_PROPERTY = "version.javax.inject";
