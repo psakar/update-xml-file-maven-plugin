@@ -22,7 +22,7 @@ public class UpdateXmlFileMojo extends AbstractMojo {
 	private String configFilePath;
 
 	@Parameter(property = "updatedFile", required = true)
-	private String targetPomPath;
+	private String updatedFile;
 
 	@Parameter(property = "update", defaultValue = "true")
 	private boolean update;
@@ -42,7 +42,7 @@ public class UpdateXmlFileMojo extends AbstractMojo {
 		PropertyReader propertyReader = new PropertyReader(configFile, project.getProperties());
 		List<Property> properties = propertyReader.readProperties();
 
-		List<File> pomFiles = getFilesInPath(targetPomPath);
+		List<File> pomFiles = getFilesInPath(updatedFile);
 		for (File pomFile : pomFiles) {
 			Updater updater = new Updater(pomFile, getLogger());
 			updater.initialize();
