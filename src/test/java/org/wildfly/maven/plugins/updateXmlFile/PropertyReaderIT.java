@@ -27,19 +27,21 @@ public class PropertyReaderIT {
 	private PropertyReader propertyReader;
 	private File propertiesFile;
 	private File pomFile;
+	private List<String> lines;
 
 	@Before
 	public void before() {
 		pomFile = new File(POM_TEST_PATH);
 		propertiesFile = new File(PROPERTIES_EXAMPLE_PATH);
-		propertyReader = new PropertyReader(propertiesFile, new Properties());
+		propertyReader = new PropertyReader(new Properties());
+		lines = FileUtils.readTextFileToList(propertiesFile);
 	}
 
 	@Test
 	public void testReaderWithSourceTypeFileUsingSystemProperties() {
 		setupSystemProperties();
 
-		List<Property> properties = propertyReader.readProperties();
+		List<Property> properties = propertyReader.readProperties(lines);
 		Property property = properties.get(FILE_TYPE_INDEX);
 
 		assertEquals(JAVAX_ENTERPRISE_XPATH, property.targetPropertyXPath);
@@ -53,7 +55,7 @@ public class PropertyReaderIT {
 	public void testReaderWithSourceTypeVariableUsingSystemProperties() {
 		setupSystemProperties();
 
-		List<Property> properties = propertyReader.readProperties();
+		List<Property> properties = propertyReader.readProperties(lines);
 		Property property = properties.get(VARIABLE_TYPE_INDEX);
 
 		assertEquals(PRODUCT_VERSION_XPATH, property.targetPropertyXPath);
@@ -66,9 +68,9 @@ public class PropertyReaderIT {
 	@Test
 	public void testReaderWithSourceTypeFileUsingProperties() {
 		clearDefinedSystemProperties();
-		propertyReader = new PropertyReader(propertiesFile, createProperties());
 
-		List<Property> properties = propertyReader.readProperties();
+		propertyReader = new PropertyReader(createProperties());
+		List<Property> properties = propertyReader.readProperties(lines);
 		Property property = properties.get(FILE_TYPE_INDEX);
 
 		assertEquals(JAVAX_ENTERPRISE_XPATH, property.targetPropertyXPath);
@@ -82,7 +84,7 @@ public class PropertyReaderIT {
 	public void testReaderMissingDefinitions() {
 		clearDefinedSystemProperties();
 
-		propertyReader.readProperties();
+		propertyReader.readProperties(lines);
 	}
 
 	private void setupSystemProperties() {

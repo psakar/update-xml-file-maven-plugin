@@ -2,27 +2,23 @@ package org.wildfly.maven.plugins.updateXmlFile;
 
 import static java.text.MessageFormat.format;
 import static org.wildfly.maven.plugins.updateXmlFile.FileUtils.convertToFile;
-import static org.wildfly.maven.plugins.updateXmlFile.FileUtils.readTextFileToList;
 import static org.wildfly.maven.plugins.updateXmlFile.Property.SOURCE_TYPE_FILE;
 import static org.wildfly.maven.plugins.updateXmlFile.Property.SOURCE_TYPE_VARIABLE;
 
-import java.io.File;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Properties;
 
 public class PropertyReader {
-	private final File configFile;
 	private final Properties projectProperties;
 
-	public PropertyReader(File configFile, Properties projectProperties) {
-		this.configFile = configFile;
+	public PropertyReader(Properties projectProperties) {
 		this.projectProperties = new Properties(projectProperties);
 	}
 
-	public List<Property> readProperties() {
+	public List<Property> readProperties(List<String> lines) {
 		List<Property> properties = new ArrayList<>();
-		for (String line : readTextFileToList(configFile)) {
+		for (String line : lines) {
 			Property property = createProperty(line);
 			properties.add(property);
 		}
