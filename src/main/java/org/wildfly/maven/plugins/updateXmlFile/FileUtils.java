@@ -58,6 +58,10 @@ public final class FileUtils {
 		}
 	}
 
+	static boolean isBlank(String path) {
+		return (path == null || path.isEmpty());
+	}
+
 	private static File downloadPomToTempFile(String url) {
 		try {
 			File file = createTempFile("pom", ".xml");
