@@ -50,8 +50,11 @@ public final class FileUtils {
 		if (isBlank(path)) {
 			return null;
 		}
-		if (path.startsWith("http")) {
+		if (path.startsWith("http://") || path.startsWith("https://") ) {
 			return downloadPomToTempFile(path);
+		}
+		if (path.startsWith("file://")) {
+			path = path.substring(7);
 		}
 		File file = new File(path);
 		if (file.exists()) {
