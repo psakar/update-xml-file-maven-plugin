@@ -21,19 +21,19 @@ mvn clean install -DskipITs
 
 ## Usage
 The required Maven options are:
-* -DupdatedFile  - xml file that will be updated
-* -DconfigFile - configuration file (local file or HTTP URL)
+* -DupdateXmlFile.updatedFile  - xml file that will be updated
+* -DupdateXmlFile.configFile - configuration file (local file or HTTP URL)
 
 An example of how to run:
 ```
-mvn org.wildfly.maven.plugins:update-pom-maven-plugin:update \
-	-DupdatedFile=/path/to/target/pom.xml \
-	-DconfigFile=configurationFile
+mvn org.wildfly.maven.plugins:update-xml-file-maven-plugin:update \
+	-DupdateXmlFile.updatedFile=/path/to/target/pom.xml \
+	-DupdateXmlFile.configFile=configurationFile
 ```
 
 It is possible to update multiple xml files at the same time using * in the Pom path, like:
 ```
--DupdatedFile=/tmp/repo/*/pom.xml
+-DupdateXmlFile.updatedFile=/tmp/repo/*/pom.xml
 ```
 
 ### Configuration file
@@ -73,10 +73,10 @@ To define "serverBomVersion" value, add it as a Maven option:
 
 ### Extra options
 The following Maven options are optional
-* -Dupdate - Automatically update versions in target file. (-Dupdate=false is dry-run mode)
-* -DstrictMode - Execution fails if a property defined in the configuration file is not found. (-DstrictMode=true is fail-fast mode)
+* -DupdateXmlFile.update - Automatically update versions in target file. (-DupdateXmlFile.update=false is dry-run mode)
+* -DupdateXmlFile.strictMode - Execution fails if a property defined in the configuration file is not found. (-DupdateXmlFile.strictMode=true is fail-fast mode)
 
-Default value for -Dupdate is true and -DstricMode is false
+Default value for -DupdateXmlFile.update is true and -DupdateXmlFile.stricMode is false
 
 
 ## License
