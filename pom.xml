@@ -25,7 +25,7 @@
 		</license>
 	</licenses>
 
-
+	<url>https://github.com/psakar/update-xml-file-maven-plugin</url>
 	<scm>
 		<connection>scm:git:${scm.connection}</connection>
 		<developerConnection>scm:git:${scm.connection}</developerConnection>
@@ -86,6 +86,84 @@
 						</goals>
 					</execution>
 				</executions>
+			</plugin>
+			<plugin>
+				<groupId>org.apache.maven.plugins</groupId>
+				<artifactId>maven-source-plugin</artifactId>
+				<version>3.0.1</version>
+				<executions>
+					<execution>
+						<id>attach-sources</id>
+						<goals>
+							<goal>jar</goal>
+						</goals>
+					</execution>
+				</executions>
+				<configuration>
+					<archive>
+						<index>true</index>
+						<manifest>
+							<addDefaultSpecificationEntries>true</addDefaultSpecificationEntries>
+							<addDefaultImplementationEntries>true</addDefaultImplementationEntries>
+						</manifest>
+						<manifestEntries>
+							<Implementation-URL>${project.url}</Implementation-URL>
+							<Java-Version>${java.version}</Java-Version>
+							<Java-Vendor>${java.vendor}</Java-Vendor>
+							<Os-Name>${os.name}</Os-Name>
+							<Os-Arch>${os.arch}</Os-Arch>
+							<Os-Version>${os.version}</Os-Version>
+							<Scm-Url>${project.scm.url}</Scm-Url>
+							<Scm-Connection>${project.scm.connection}</Scm-Connection>
+							<Scm-Revision>${buildNumber}</Scm-Revision>
+						</manifestEntries>
+					</archive>
+				</configuration>
+			</plugin>
+			<plugin><!-- Set properties containing the scm revision -->
+				<groupId>org.codehaus.mojo</groupId>
+				<artifactId>buildnumber-maven-plugin</artifactId>
+				<version>1.4</version>
+				<executions>
+					<execution>
+						<id>get-scm-revision</id>
+						<phase>initialize</phase>
+						<goals>
+							<goal>create</goal>
+						</goals>
+						<configuration>
+							<doCheck>false</doCheck>
+							<doUpdate>false</doUpdate>
+							<revisionOnScmFailure>UNKNOWN</revisionOnScmFailure>
+							<getRevisionOnlyOnce>true</getRevisionOnlyOnce>
+						</configuration>
+					</execution>
+				</executions>
+			</plugin>
+			<plugin>
+				<groupId>org.apache.maven.plugins</groupId>
+				<artifactId>maven-jar-plugin</artifactId>
+				<version>3.1.0</version>
+				<configuration>
+					<archive>
+						<index>true</index>
+						<manifest>
+							<addDefaultSpecificationEntries>true</addDefaultSpecificationEntries>
+							<addDefaultImplementationEntries>true</addDefaultImplementationEntries>
+						</manifest>
+						<manifestEntries>
+							<Implementation-URL>${project.url}</Implementation-URL>
+							<Java-Version>${java.version}</Java-Version>
+							<Java-Vendor>${java.vendor}</Java-Vendor>
+							<Os-Name>${os.name}</Os-Name>
+							<Os-Arch>${os.arch}</Os-Arch>
+							<Os-Version>${os.version}</Os-Version>
+							<Scm-Url>${project.scm.url}</Scm-Url>
+							<Scm-Connection>${project.scm.connection}</Scm-Connection>
+							<Scm-Revision>${buildNumber}</Scm-Revision>
+						</manifestEntries>
+					</archive>
+				</configuration>
 			</plugin>
 		</plugins>
 	</build>
