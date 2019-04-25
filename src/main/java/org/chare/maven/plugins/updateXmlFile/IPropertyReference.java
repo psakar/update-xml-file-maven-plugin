@@ -1,4 +1,4 @@
-package org.wildfly.maven.plugins.updateXmlFile;
+package org.chare.maven.plugins.updateXmlFile;
 
 import java.io.File;
 

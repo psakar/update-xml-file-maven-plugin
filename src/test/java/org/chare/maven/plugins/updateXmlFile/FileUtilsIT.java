@@ -1,15 +1,15 @@
-package org.wildfly.maven.plugins.updateXmlFile;
+package org.chare.maven.plugins.updateXmlFile;
 
 import static org.apache.commons.io.FileUtils.deleteDirectory;
 import static org.junit.Assert.assertEquals;
 import static org.junit.Assert.assertTrue;
-import static org.wildfly.maven.plugins.updateXmlFile.FileUtils.WILDCARD;
-import static org.wildfly.maven.plugins.updateXmlFile.FileUtils.convertToFile;
-import static org.wildfly.maven.plugins.updateXmlFile.FileUtils.getFilesInPath;
-import static org.wildfly.maven.plugins.updateXmlFile.FileUtils.readTextFileToList;
-import static org.wildfly.maven.plugins.updateXmlFile.TestUtils.POM_TEST_PATH;
-import static org.wildfly.maven.plugins.updateXmlFile.TestUtils.PROPERTIES_EXAMPLE_PATH;
-import static org.wildfly.maven.plugins.updateXmlFile.TestUtils.createRandomString;
+import static org.chare.maven.plugins.updateXmlFile.FileUtils.WILDCARD;
+import static org.chare.maven.plugins.updateXmlFile.FileUtils.convertToFile;
+import static org.chare.maven.plugins.updateXmlFile.FileUtils.getFilesInPath;
+import static org.chare.maven.plugins.updateXmlFile.FileUtils.readTextFileToList;
+import static org.chare.maven.plugins.updateXmlFile.TestUtils.POM_TEST_PATH;
+import static org.chare.maven.plugins.updateXmlFile.TestUtils.PROPERTIES_EXAMPLE_PATH;
+import static org.chare.maven.plugins.updateXmlFile.TestUtils.createRandomString;
 
 import java.io.File;
 import java.util.List;

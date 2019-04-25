@@ -1,14 +1,14 @@
-package org.wildfly.maven.plugins.updateXmlFile;
+package org.chare.maven.plugins.updateXmlFile;
 
 import static org.junit.Assert.assertEquals;
 import static org.junit.Assert.assertNull;
-import static org.wildfly.maven.plugins.updateXmlFile.Property.SOURCE_TYPE_FILE;
-import static org.wildfly.maven.plugins.updateXmlFile.Property.SOURCE_TYPE_VARIABLE;
-import static org.wildfly.maven.plugins.updateXmlFile.TestUtils.JAVAX_ENTERPRISE_VALUE;
-import static org.wildfly.maven.plugins.updateXmlFile.TestUtils.JAVAX_ENTERPRISE_XPATH;
-import static org.wildfly.maven.plugins.updateXmlFile.TestUtils.MAVEN_PARAMETER_WILDFLYCORE_POM;
-import static org.wildfly.maven.plugins.updateXmlFile.TestUtils.POM_TEST_PATH;
-import static org.wildfly.maven.plugins.updateXmlFile.TestUtils.PROPERTIES_EXAMPLE_PATH;
+import static org.chare.maven.plugins.updateXmlFile.Property.SOURCE_TYPE_FILE;
+import static org.chare.maven.plugins.updateXmlFile.Property.SOURCE_TYPE_VARIABLE;
+import static org.chare.maven.plugins.updateXmlFile.TestUtils.JAVAX_ENTERPRISE_VALUE;
+import static org.chare.maven.plugins.updateXmlFile.TestUtils.JAVAX_ENTERPRISE_XPATH;
+import static org.chare.maven.plugins.updateXmlFile.TestUtils.MAVEN_PARAMETER_WILDFLYCORE_POM;
+import static org.chare.maven.plugins.updateXmlFile.TestUtils.POM_TEST_PATH;
+import static org.chare.maven.plugins.updateXmlFile.TestUtils.PROPERTIES_EXAMPLE_PATH;
 
 import java.io.File;
 import java.util.List;

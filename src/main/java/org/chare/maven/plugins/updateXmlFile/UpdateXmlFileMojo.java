@@ -1,11 +1,11 @@
-package org.wildfly.maven.plugins.updateXmlFile;
+package org.chare.maven.plugins.updateXmlFile;
 
 import static java.util.Arrays.asList;
 import static org.apache.maven.plugins.annotations.LifecyclePhase.VALIDATE;
-import static org.wildfly.maven.plugins.updateXmlFile.Constants.UPDATE_GOAL;
-import static org.wildfly.maven.plugins.updateXmlFile.FileUtils.convertToFile;
-import static org.wildfly.maven.plugins.updateXmlFile.FileUtils.getFilesInPath;
-import static org.wildfly.maven.plugins.updateXmlFile.FileUtils.readTextFileToList;
+import static org.chare.maven.plugins.updateXmlFile.Constants.UPDATE_GOAL;
+import static org.chare.maven.plugins.updateXmlFile.FileUtils.convertToFile;
+import static org.chare.maven.plugins.updateXmlFile.FileUtils.getFilesInPath;
+import static org.chare.maven.plugins.updateXmlFile.FileUtils.readTextFileToList;
 
 import java.io.File;
 import java.util.List;

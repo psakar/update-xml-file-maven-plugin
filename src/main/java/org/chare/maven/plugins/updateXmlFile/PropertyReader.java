@@ -1,9 +1,9 @@
-package org.wildfly.maven.plugins.updateXmlFile;
+package org.chare.maven.plugins.updateXmlFile;
 
 import static java.text.MessageFormat.format;
-import static org.wildfly.maven.plugins.updateXmlFile.FileUtils.convertToFile;
-import static org.wildfly.maven.plugins.updateXmlFile.Property.SOURCE_TYPE_FILE;
-import static org.wildfly.maven.plugins.updateXmlFile.Property.SOURCE_TYPE_VARIABLE;
+import static org.chare.maven.plugins.updateXmlFile.FileUtils.convertToFile;
+import static org.chare.maven.plugins.updateXmlFile.Property.SOURCE_TYPE_FILE;
+import static org.chare.maven.plugins.updateXmlFile.Property.SOURCE_TYPE_VARIABLE;
 
 import java.util.ArrayList;
 import java.util.List;

@@ -1,7 +1,7 @@
-package org.wildfly.maven.plugins.updateXmlFile;
+package org.chare.maven.plugins.updateXmlFile;
 
 import static org.apache.maven.plugins.annotations.LifecyclePhase.INITIALIZE;
-import static org.wildfly.maven.plugins.updateXmlFile.Constants.HELP_GOAL;
+import static org.chare.maven.plugins.updateXmlFile.Constants.HELP_GOAL;
 
 import javax.inject.Inject;
 
@@ -19,7 +19,7 @@ public class HelpMojo extends AbstractMojo {
 		String version = project.getVersion();
 		String scm = project.getProperties().getProperty("scm.url");
 		getLog().info("To update xml file:");
-		getLog().info("   org.wildfly.maven.plugins:update-xml-file-maven-plugin:" + version + ":update");
+		getLog().info("   org.chare.maven.plugins:update-xml-file-maven-plugin:" + version + ":update");
 		getLog().info("The README with all options can be found at: " + scm);
 	}
 }

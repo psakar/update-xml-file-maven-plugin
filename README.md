@@ -26,7 +26,7 @@ The required Maven options are:
 
 An example of how to run:
 ```
-mvn org.wildfly.maven.plugins:update-xml-file-maven-plugin:update \
+mvn org.chare.maven.plugins:update-xml-file-maven-plugin:update \
 	-DupdateXmlFile.updatedFile=/path/to/target/pom.xml \
 	-DupdateXmlFile.configFile=configurationFile
 ```
