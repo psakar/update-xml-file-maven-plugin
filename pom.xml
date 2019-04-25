@@ -14,7 +14,8 @@
 		<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
 		<maven.compiler.target>1.8</maven.compiler.target>
 		<maven.compiler.source>1.8</maven.compiler.source>
-		<scm.url>https://github.com/wildfly/maven-plugins</scm.url>
+		<scm.connection>git@github.com:psakar/update-xml-file-maven-plugin.git</scm.connection>
+		<scm.url>https://github.com/psakar/update-xml-file-maven-plugin.git</scm.url>
 	</properties>
 
 	<licenses>
@@ -23,6 +24,24 @@
 			<url>http://www.apache.org/licenses/LICENSE-2.0.txt</url>
 		</license>
 	</licenses>
+
+
+	<scm>
+		<connection>scm:git:${scm.connection}</connection>
+		<developerConnection>scm:git:${scm.connection}</developerConnection>
+		<url>${scm.url}</url>
+	</scm>
+
+	<developers>
+		<developer>
+			<id>psakar</id>
+			<name>Petr Sakar</name>
+		</developer>
+		<developer>
+			<id>rquimara</id>
+			<name>Roberto Guimaraes Dutra de Oliveira</name>
+		</developer>
+	</developers>
 
 	<dependencies>
 		<dependency>
