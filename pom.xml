@@ -87,39 +87,6 @@
 					</execution>
 				</executions>
 			</plugin>
-			<plugin>
-				<groupId>org.apache.maven.plugins</groupId>
-				<artifactId>maven-source-plugin</artifactId>
-				<version>3.0.1</version>
-				<executions>
-					<execution>
-						<id>attach-sources</id>
-						<goals>
-							<goal>jar</goal>
-						</goals>
-					</execution>
-				</executions>
-				<configuration>
-					<archive>
-						<index>true</index>
-						<manifest>
-							<addDefaultSpecificationEntries>true</addDefaultSpecificationEntries>
-							<addDefaultImplementationEntries>true</addDefaultImplementationEntries>
-						</manifest>
-						<manifestEntries>
-							<Implementation-URL>${project.url}</Implementation-URL>
-							<Java-Version>${java.version}</Java-Version>
-							<Java-Vendor>${java.vendor}</Java-Vendor>
-							<Os-Name>${os.name}</Os-Name>
-							<Os-Arch>${os.arch}</Os-Arch>
-							<Os-Version>${os.version}</Os-Version>
-							<Scm-Url>${project.scm.url}</Scm-Url>
-							<Scm-Connection>${project.scm.connection}</Scm-Connection>
-							<Scm-Revision>${buildNumber}</Scm-Revision>
-						</manifestEntries>
-					</archive>
-				</configuration>
-			</plugin>
 			<plugin><!-- Set properties containing the scm revision -->
 				<groupId>org.codehaus.mojo</groupId>
 				<artifactId>buildnumber-maven-plugin</artifactId>
@@ -164,42 +131,6 @@
 						</manifestEntries>
 					</archive>
 				</configuration>
-			</plugin>
-			<plugin>
-				<groupId>org.apache.maven.plugins</groupId>
-				<artifactId>maven-javadoc-plugin</artifactId>
-				<version>3.0.1</version>
-				<configuration>
-					<sourcepath>src/main/java</sourcepath>
-					<header><![CDATA[<b>${project.name} ${project.version}</b>]]></header>
-					<footer><![CDATA[<b>${project.name} ${project.version}</b>]]></footer>
-					<archive>
-						<index>true</index>
-						<manifest>
-							<addDefaultSpecificationEntries>true</addDefaultSpecificationEntries>
-							<addDefaultImplementationEntries>true</addDefaultImplementationEntries>
-						</manifest>
-						<manifestEntries>
-							<Implementation-URL>${project.url}</Implementation-URL>
-							<Java-Version>${java.version}</Java-Version>
-							<Java-Vendor>${java.vendor}</Java-Vendor>
-							<Os-Name>${os.name}</Os-Name>
-							<Os-Arch>${os.arch}</Os-Arch>
-							<Os-Version>${os.version}</Os-Version>
-							<Scm-Url>${project.scm.url}</Scm-Url>
-							<Scm-Connection>${project.scm.connection}</Scm-Connection>
-							<Scm-Revision>${buildNumber}</Scm-Revision>
-						</manifestEntries>
-					</archive>
-				</configuration>
-				<executions>
-					<execution>
-						<id>attach-javadocs</id>
-						<goals>
-							<goal>jar</goal>
-						</goals>
-					</execution>
-				</executions>
 			</plugin>
 		</plugins>
 	</build>
@@ -279,6 +210,75 @@
 			<build>
 				<plugins>
 					<plugin>
+						<groupId>org.apache.maven.plugins</groupId>
+						<artifactId>maven-source-plugin</artifactId>
+						<version>3.0.1</version>
+						<executions>
+							<execution>
+								<id>attach-sources</id>
+								<goals>
+									<goal>jar</goal>
+								</goals>
+							</execution>
+						</executions>
+						<configuration>
+							<archive>
+								<index>true</index>
+								<manifest>
+									<addDefaultSpecificationEntries>true</addDefaultSpecificationEntries>
+									<addDefaultImplementationEntries>true</addDefaultImplementationEntries>
+								</manifest>
+								<manifestEntries>
+									<Implementation-URL>${project.url}</Implementation-URL>
+									<Java-Version>${java.version}</Java-Version>
+									<Java-Vendor>${java.vendor}</Java-Vendor>
+									<Os-Name>${os.name}</Os-Name>
+									<Os-Arch>${os.arch}</Os-Arch>
+									<Os-Version>${os.version}</Os-Version>
+									<Scm-Url>${project.scm.url}</Scm-Url>
+									<Scm-Connection>${project.scm.connection}</Scm-Connection>
+									<Scm-Revision>${buildNumber}</Scm-Revision>
+								</manifestEntries>
+							</archive>
+						</configuration>
+					</plugin>
+					<plugin>
+						<groupId>org.apache.maven.plugins</groupId>
+						<artifactId>maven-javadoc-plugin</artifactId>
+						<version>3.0.1</version>
+						<configuration>
+							<sourcepath>src/main/java</sourcepath>
+							<header><![CDATA[<b>${project.name} ${project.version}</b>]]></header>
+							<footer><![CDATA[<b>${project.name} ${project.version}</b>]]></footer>
+							<archive>
+								<index>true</index>
+								<manifest>
+									<addDefaultSpecificationEntries>true</addDefaultSpecificationEntries>
+									<addDefaultImplementationEntries>true</addDefaultImplementationEntries>
+								</manifest>
+								<manifestEntries>
+									<Implementation-URL>${project.url}</Implementation-URL>
+									<Java-Version>${java.version}</Java-Version>
+									<Java-Vendor>${java.vendor}</Java-Vendor>
+									<Os-Name>${os.name}</Os-Name>
+									<Os-Arch>${os.arch}</Os-Arch>
+									<Os-Version>${os.version}</Os-Version>
+									<Scm-Url>${project.scm.url}</Scm-Url>
+									<Scm-Connection>${project.scm.connection}</Scm-Connection>
+									<Scm-Revision>${buildNumber}</Scm-Revision>
+								</manifestEntries>
+							</archive>
+						</configuration>
+						<executions>
+							<execution>
+								<id>attach-javadocs</id>
+								<goals>
+									<goal>jar</goal>
+								</goals>
+							</execution>
+						</executions>
+					</plugin>
+					<plugin>
 						<groupId>org.sonatype.plugins</groupId>
 						<artifactId>nexus-staging-maven-plugin</artifactId>
 						<version>1.6.7</version>
@@ -288,6 +288,20 @@
 							<nexusUrl>https://oss.sonatype.org/</nexusUrl>
 							<autoReleaseAfterClose>true</autoReleaseAfterClose>
 						</configuration>
+					</plugin>
+					<plugin>
+						<groupId>org.apache.maven.plugins</groupId>
+						<artifactId>maven-gpg-plugin</artifactId>
+						<version>1.5</version>
+						<executions>
+							<execution>
+								<id>sign-artifacts</id>
+								<phase>verify</phase>
+								<goals>
+									<goal>sign</goal>
+								</goals>
+							</execution>
+						</executions>
 					</plugin>
 				</plugins>
 			</build>
