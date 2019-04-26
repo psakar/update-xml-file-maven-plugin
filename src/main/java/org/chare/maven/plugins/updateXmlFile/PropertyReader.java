@@ -19,6 +19,9 @@ public class PropertyReader {
 	public List<Property> readProperties(List<String> lines) {
 		List<Property> properties = new ArrayList<>();
 		for (String line : lines) {
+			if (line == null || line.isEmpty() || line.startsWith("#")) { // ignore empty lines and line with comment starting #
+				continue;
+			}
 			Property property = createProperty(line);
 			properties.add(property);
 		}
@@ -27,6 +30,9 @@ public class PropertyReader {
 
 	private Property createProperty(String line) {
 		String[] parts = line.split(";");
+		if (parts.length < 3) {
+			throw new IllegalArgumentException("Expected line in format TARGET_PROPERTY_XPATH;SOURCE_TYPE;REFERENCE, was " + line);
+		}
 		String targetPropertyXPath = parts[0];
 		String sourceType = parts[1];
 		String reference = parts[2];
