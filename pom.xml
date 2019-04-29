@@ -5,7 +5,7 @@
 
 	<groupId>org.chare.maven.plugins</groupId>
 	<artifactId>update-xml-file-maven-plugin</artifactId>
-	<version>0.0.1.Final</version>
+	<version>0.0.2.Final</version>
 	<packaging>maven-plugin</packaging>
 	<name>Update xml file plugin</name>
 	<description>Maven plugin that updates the text values in xml file based on provided values or values in anothers xml</description>
