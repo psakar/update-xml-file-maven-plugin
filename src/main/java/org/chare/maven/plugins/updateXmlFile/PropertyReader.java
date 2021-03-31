@@ -44,6 +44,9 @@ public class PropertyReader {
 			String[] referenceParts = reference.split(":");
 			String fileName = referenceParts[0];
 			String propertyValue = getValue(fileName, projectProperties);
+			if (propertyValue.isEmpty()) {
+				throw new IllegalArgumentException("Property " + fileName + " was defined with an empty value.");
+			}
 			String filePath = convertToFile(propertyValue).getAbsolutePath();
 			return new Property(targetPropertyXPath, sourceType, reference.replace(fileName, filePath));
 		} else {
